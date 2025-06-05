@@ -1,0 +1,74 @@
+🔀 Git Branching Operations
+✅ 1. Create a New Branch
+
+git branch feature-1
+📌 Creates a new branch named feature-1 based on your current branch (usually main or master).
+
+✅ 2. Switch to a Branch
+
+git checkout feature-1
+📌 Switches to the branch feature-1.
+
+Or use the modern way:
+
+git switch feature-1
+
+✅ 3. Create & Switch in One Command
+
+git checkout -b feature-2
+📌 Creates a new branch feature-2 and switches to it immediately.
+
+Or:
+
+git switch -c feature-2|
+
+✅ 4. List All Branches
+
+git branch
+📌 Lists all local branches. The current branch is marked with *.
+
+✅ 5. Rename a Branch
+
+git branch -m old-name new-name
+📌 Renames the branch old-name to new-name.
+
+✅ 6. Merge a Branch into Current Branch
+
+git checkout main
+git merge feature-1
+📌 Merges changes from feature-1 into main.
+
+If there are conflicts, Git will notify you to resolve them manually.
+
+✅ 7. Delete a Branch
+
+git branch -d feature-1
+📌 Deletes the branch feature-1 (only if it’s already merged).
+
+To force delete:
+
+git branch -D feature-1
+✅ 8. Push a Branch to GitHub
+
+git push origin feature-1
+
+✅ 9. Pull a Remote Branch Locally
+
+git fetch origin
+git checkout -b feature-1 origin/feature-1
+
+🧠 Example Flow
+
+git init
+echo "# My DevOps Code" > README.md
+git add .
+git commit -m "Initial commit"
+
+git branch dev
+git switch dev
+echo "New Feature Code" > feature.txt
+git add .
+git commit -m "Feature added in dev branch"
+
+git switch main
+git merge dev
