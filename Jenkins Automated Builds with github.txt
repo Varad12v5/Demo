@@ -1,0 +1,18 @@
+🚀 Let’s Build Java Automatically (Step-by-Step Using Poll SCM)
+
+✅ Step 1: Create a Freestyle Project in Jenkins
+Jenkins Dashboard → New Item → Name it → Select Freestyle project
+
+✅ Step 2: Link to GitHub Repo
+Under Source Code Management → Git
+
+Enter your GitHub repo URL
+
+✅ Step 3: Build Commands (Using javac or Maven)
+🆕 Step 3: Add “Execute Windows batch command” Step
+Click Add build step → Execute Windows batch command
+
+In "Execute Windows batch command", use:
+
+mkdir out
+javac -d out *.java

@@ -1,0 +1,51 @@
+Create a new Git repository
+
+Create and switch to a feature branch
+
+Make changes and commit
+
+Switch to main branch
+
+Merge the feature branch into main
+
+Observe the result
+
+🔧 Step-by-Step Git Branch Merging Example
+✅ Step 1: Initialize a Git Repository
+
+mkdir git-merge-demo
+cd git-merge-demo
+git init
+
+✅ Step 2: Create a File and Make First Commit
+echo "This is the main branch." > file.txt
+git add file.txt
+git commit -m "Initial commit on main"
+
+✅ Step 3: Create and Switch to Feature Branch
+git checkout -b feature-branch
+
+✅ Step 4: Modify File in Feature Branch
+
+echo "Feature branch adds this line." >> file.txt
+git add file.txt
+git commit -m "Updated file.txt in feature branch"
+
+✅ Step 5: Switch Back to main Branch
+git checkout main
+
+✅ Step 6: Merge the Feature Branch into Main
+
+git merge feature-branch
+
+💡 If there are no conflicts, Git will auto-merge and show:
+
+Merge made by the 'recursive' strategy.
+
+✅ Step 7: Verify Merge
+cat file.txt
+
+You should see:
+
+This is the main branch.
+Feature branch adds this line.

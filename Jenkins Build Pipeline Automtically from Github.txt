@@ -1,0 +1,47 @@
+🧠 But If You Want a Real “Pipeline” Job
+You can create a Pipeline project like this:
+
+Jenkins → New Item
+
+Name: JavaPipelineJob
+
+Select Pipeline
+
+Under “Pipeline” section, choose:
+
+Definition: Pipeline script or from SCM
+
+Add the following:
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Varad12v5/Demo.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                bat '''
+                if not exist out (
+                    mkdir out
+                )
+                javac -d out *.java
+                '''
+            }
+        }
+    }
+}
+
+
+🔄 Optional (for polling instead of webhook):
+Check:
+
+makefile
+Copy
+Edit
+☑ Poll SCM
+Schedule: * * * * *

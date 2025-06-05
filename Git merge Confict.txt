@@ -1,0 +1,60 @@
+🔧 Step-by-Step: Git Merge Conflict Demo
+
+✅ Step 1: Initialize a Git Repo
+mkdir git-conflict-demo
+cd git-conflict-demo
+git init
+
+✅ Step 2: Create a File and Initial Commit
+echo "Welcome to DevOps!" > notes.txt
+git add notes.txt
+git commit -m "Initial commit on main"
+
+✅ Step 3: Create and Switch to feature-a Branch
+git checkout -b feature-a
+
+✅ Step 4: Modify the File in feature-a
+echo "This line is added by Feature A" > notes.txt
+git add notes.txt
+git commit -m "Feature A update"
+
+✅ Step 5: Switch Back to main and Modify Same Line
+git checkout main
+
+Modify the same line:
+
+echo "This line is changed by Main branch" > notes.txt
+git add notes.txt
+git commit -m "Main branch update"
+
+❌ Step 6: Merge feature-a into main
+
+git merge feature-a
+
+Now Git shows a conflict:
+
+Auto-merging notes.txt
+CONFLICT (content): Merge conflict in notes.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+⚠️ Step 7: View the Conflict
+cat notes.txt
+You’ll see:
+
+txt
+Copy
+Edit
+<<<<<<< HEAD
+This line is changed by Main branch
+=======
+This line is added by Feature A
+>>>>>>> feature-a
+🛠️ Step 8: Resolve the Conflict Manually
+Edit notes.txt to keep the version you want. For example:
+
+This line merges both Feature A and Main branch
+
+Then:
+
+git add notes.txt
+git commit -m "Resolved merge conflict between main and feature-a"

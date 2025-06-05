@@ -1,0 +1,70 @@
+🗂️ Step 1: Prepare Your Folder
+Make sure:
+
+Java files (.java) are directly inside:
+
+C:\Users\Varad\Desktop\nn
+Files like Main.java, Test.java are valid and contain a main method (at least one file must).
+
+⚙️ Step 2: Create Jenkins Job
+Open Jenkins
+
+Click New Item
+
+Name it: AutoJavaBuild
+
+Choose Freestyle project
+
+Click OK
+
+🔁 Step 3: Enable Periodic Trigger
+Go to Build Triggers
+
+✅ Check: Build periodically
+
+In the box, type:
+
+* * * * *
+⏰ Triggers build every 1 minute
+
+
+
+🧱 Step 4: Add Build Command
+Go to Build
+
+Click Add build step → Execute Windows batch command
+
+Paste this exact script:
+
+echo ==== Auto Java Build Start ====
+
+cd /d C:\Users\Varad\Desktop\nn
+
+echo [Step] Creating output directory if not exists
+if not exist out (
+  mkdir out
+)
+
+echo [Step] Compiling Java files...
+javac -d out *.java
+
+echo [Step] Listing compiled files:
+dir out
+
+echo ==== Auto Java Build Done ====
+
+💾 Step 5: Save & Test
+Click Save
+
+Then click Build Now (manual test)
+
+Click the build number → Console Output
+
+You should see .class files generated
+
+✨ Step 6: Modify .java File and Wait
+Make a small change in any .java file in the folder (e.g., add a comment)
+
+Save it
+
+Jenkins should auto-trigger the job in 1 min
