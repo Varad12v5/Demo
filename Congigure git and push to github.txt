@@ -1,0 +1,44 @@
+✅ Step 1: Configure Git (Only Once per Machine)
+
+git config --global user.name "Varad Brahmapurkar"
+git config --global user.email "your-email@example.com"
+
+🔍 You can check the configuration using:
+git config --list
+
+✅ Step 2: Create a Local Git Repo
+If you don’t already have one:
+
+mkdir my-git-project
+cd my-git-project
+git init
+echo "# My First Project" > README.md
+git add .
+git commit -m "Initial commit"
+
+✅ Step 3: Create a GitHub Repo
+Go to https://github.com
+
+Click New Repository
+
+Name it (e.g., my-git-project)
+
+DO NOT initialize with README (you already have one locally)
+
+Click Create Repository
+
+✅ Step 4: Connect Local Repo to GitHub
+
+Copy the repo URL from GitHub, e.g.,
+
+https://github.com/your-username/my-git-project.git
+
+Add it as the remote origin:
+
+git remote add origin https://github.com/your-username/my-git-project.git
+
+✅ Step 5: Push the Code to GitHub
+First push (use -u to set upstream):
+
+git push -u origin main
+❗ If your branch is master instead of main, replace main with master.
